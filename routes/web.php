@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', App\Livewire\ToDoList::class)->name('todolist');
+
+Route::fallback(function () {
+    return redirect()->route('todolist');
 });
